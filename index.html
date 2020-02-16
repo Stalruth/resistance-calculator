@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Resistance Calculator
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.1/dist/css/foundation.min.css" integrity="sha256-Q2fXBbKhtsyhYrSLa7hXCNV+FdhbQhyrjks8Kic0u/U=" crossorigin="anonymous">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@StalruthVGC">
+    <meta name="twitter:title" content="Pokemon Breeding Odds">
+    <meta name="twitter:description" content="A tool to help you optimise your Pokemon Breeding">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <h1>Resistance Calculator</h1>
+    <p>This will calculate your Opponent's Win % given your results.</p>
+    <table id="listing">
+      <tr>
+        <th>Wins:</th>
+        <th>Losses:</th>
+        <th></th>
+      </tr>
+    </table>
+    <template id="listItem">
+      <tr class="input">
+        <td><input type="number" class="wincount"></td>
+        <td><input type="number" class="losscount"></td>
+        <td><a class="alert button expanded">Delete</a></td>
+      </tr>
+    </template>
+    <div>
+      <a class="button expanded" id="add">Add</a>
+      <a class="button success expanded" id="calculate">Calculate</a>
+    </div>
+    <p id="resultpara" class="hide">Your Opponent's Win % is <b><span id="result"></span></b></p>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.1/dist/js/foundation.min.js" integrity="sha256-tdB5sxJ03S1jbwztV7NCvgqvMlVEvtcoJlgf62X49iM=" crossorigin="anonymous"></script>
+  </body>
+</html>
