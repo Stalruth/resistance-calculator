@@ -19,14 +19,29 @@
     list.querySelectorAll('.input').forEach((el) => {
       console.log(el);
       w += Number(el.querySelector('.wincount').value);
-      b += Number(el.querySelector('.wincount').value) + Number(el.querySelector('.losscount').value);
+      w += Number(el.querySelector('.tiecount').value) / 2;
+      b += Number(el.querySelector('.wincount').value);
+      b += Number(el.querySelector('.tiecount').value);
+      b += Number(el.querySelector('.losscount').value);
     });
     result = (w * 100) / b;
     document.getElementById('resultpara').classList.remove("hide");
     document.getElementById('result').textContent = result.toFixed(2) + '%';
   }
 
+  function setTies() {
+    const show = document.getElementById('TCGMode').checked;
+    console.log(show);
+    if(show) {
+      document.body.classList.add('ties');
+    } else {
+      document.body.classList.remove('ties');
+    }
+  }
+
   addItem();
+  setTies();
   document.getElementById('add').addEventListener('click', addItem);
   document.getElementById('calculate').addEventListener('click', calculate);
+  document.getElementById('TCGMode').addEventListener('input', setTies);
 }

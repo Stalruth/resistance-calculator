@@ -1,0 +1,7 @@
+.tiecol, .tiehead {
+  display: none;
+}
+
+.ties .tiecol, .ties .tiehead {
+  display: table-cell;
+}

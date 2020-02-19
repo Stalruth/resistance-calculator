@@ -5,6 +5,7 @@
       Resistance Calculator
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.1/dist/css/foundation.min.css" integrity="sha256-Q2fXBbKhtsyhYrSLa7hXCNV+FdhbQhyrjks8Kic0u/U=" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@StalruthVGC">
     <meta name="twitter:title" content="Resistance Calculator">
@@ -16,9 +17,11 @@
   <body>
     <h1>Resistance Calculator</h1>
     <p>This will calculate your Opponent's Win % given your opponents' results.</p>
+    <label><input type="checkbox" id="TCGMode">TCG Mode (show ties)</label>
     <table id="listing">
       <tr>
         <th>Wins:</th>
+        <th class="tiehead">Ties:</th>
         <th>Losses:</th>
         <th></th>
       </tr>
@@ -26,6 +29,7 @@
     <template id="listItem">
       <tr class="input">
         <td><input type="number" class="wincount"></td>
+        <td class="tiecol"><input type="number" class="tiecount"></td>
         <td><input type="number" class="losscount"></td>
         <td><a class="alert button expanded">Delete</a></td>
       </tr>
