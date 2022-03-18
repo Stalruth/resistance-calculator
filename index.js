@@ -14,24 +14,21 @@
 
   function calculate() {
     const list = document.getElementById('listing');
-    let w = 0;
-    let b = 0;
-    list.querySelectorAll('.input').forEach((el) => {
-      console.log(el);
-      w += Number(el.querySelector('.wincount').value);
-      w += Number(el.querySelector('.tiecount').value) / 2;
-      b += Number(el.querySelector('.wincount').value);
-      b += Number(el.querySelector('.tiecount').value);
-      b += Number(el.querySelector('.losscount').value);
+    const resistance = Array.from(list.querySelectorAll('.input')).map((el) => {
+      const wins = Number(el.querySelector('.wincount').value);
+      const ties = Number(el.querySelector('.tiecount').value);
+      const losses = Number(el.querySelector('.losscount').value);
+      return (wins + (ties / 2))/(wins + ties + losses);
+    }).reduce((acc, cur, ind) => {
+      console.log({acc, cur, ind});
+      return ((acc * ind) + cur) / (ind + 1)
     });
-    result = (w * 100) / b;
     document.getElementById('resultpara').classList.remove("hide");
-    document.getElementById('result').textContent = result.toFixed(2) + '%';
+    document.getElementById('result').textContent = (resistance * 100).toFixed(2) + '%';
   }
 
   function setTies() {
     const show = document.getElementById('TCGMode').checked;
-    console.log(show);
     if(show) {
       document.body.classList.add('ties');
     } else {
